@@ -1,8 +1,8 @@
 ---
-const { text, variant } = Astro.props;
+const { placement, text, variant } = Astro.props;
 ---
 
-<div>
+<div class={placement}>
   <p class={variant}>{text}</p>
   <slot />
 </div>
@@ -11,9 +11,11 @@ const { text, variant } = Astro.props;
   div {
     display: flex;
     flex: row;
-    justify-content: center;
   }
-
+  .center {
+    justify-content: center;
+    margin-bottom: 50px;
+  }
   .read_more {
     background-color: white;
     font-family: var(--main_font);
