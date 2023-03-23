@@ -1,0 +1,297 @@
+---
+import NavItem from "./NavItem.astro";
+const { type } = Astro.props;
+---
+
+<button id="burger-menu">
+  Menu
+  <span></span>
+</button>
+
+<nav id="menu">
+  <div id="flex">
+    <a href="/"><img src="/Logo.png" alt="Logo KUNE" /></a>
+    <ul>
+      <li class="padding">
+        <NavItem title="Ticket/Booking" variant="hidden" />
+      </li>
+      <li>
+        <a href="/lineup"><NavItem title="Line-up" /></a>
+        <ul class={type}>
+          <li><a href="#">Music</a></li>
+          <li><a href="#">Art</a></li>
+          <li><a href="#">Workshops</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/about"><NavItem title="About" /></a>
+        <ul class={type}>
+          <li><a href="#">The Organization</a></li>
+          <li><a href="#">Our Values</a></li>
+          <li><a href="#">Our History</a></li>
+          <li><a href="#">The Collaborators</a></li>
+        </ul>
+      </li>
+      <li>
+        <NavItem title="Info" />
+        <ul class={type}>
+          <li><a href="#">Sleeping Quarters</a></li>
+          <li><a href="#">Food</a></li>
+          <li><a href="#">Transport</a></li>
+          <li><a href="#">Volunteer</a></li>
+          <li><a href="#">Map</a></li>
+          <li><a href="#">Guidelines</a></li>
+        </ul>
+      </li>
+      <li class="padding"><NavItem title="Gallery" variant="hidden" /></li>
+    </ul>
+  </div>
+  <div class="top">
+    <div class="searchbar">
+      <i class="fa-solid fa-magnifying-glass"></i><p>Search</p>
+    </div>
+    <i class="fa-solid fa-bell"></i>
+  </div>
+
+  <script src="../scripts/burger.js"></script>
+
+  <style>
+    img {
+      aspect-ratio: 1/1;
+      height: 80px;
+      width: 80px;
+      padding: 0 10px 0px 25px;
+    }
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0px;
+      border: 1px solid black;
+    }
+    div {
+      display: flex;
+      align-items: center;
+    }
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2.5em;
+      list-style: none;
+    }
+
+    ul li {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    ul li ul {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      padding-left: 0;
+      left: 0;
+      display: none;
+      z-index: 5;
+    }
+    .normal {
+      background: var(--bg_color);
+    }
+    .lineup {
+      background: hsla(44, 48%, 95%, 1);
+    }
+    ul li:hover > ul,
+    ul li ul:hover {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+      min-width: 20%;
+      padding: 0px 12px;
+      text-align: left;
+      padding-top: 20px;
+      /* box-shadow: 0px 0px 1px 0px var(--font_color); */
+    }
+
+    ul li ul li {
+      clear: both;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--font_color);
+    }
+
+    ul li ul li a:hover {
+      padding-left: 5px;
+      border-left: 2px solid var(--secondary);
+      transition: all 0.3s ease;
+    }
+
+    a {
+      text-decoration: none;
+      font-family: var(--main_font);
+      color: var(--font_color);
+    }
+
+    ul li ul li a {
+      font-size: 15px;
+      transition: all 0.5s ease;
+    }
+    a:visited {
+      color: var(--font_color);
+    }
+    .searchbar {
+      background-color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px 70px 10px 20px;
+    }
+    p {
+      color: var(--font_color);
+      font-family: var(--main_font);
+      font-weight: 400;
+      font-size: var(--fs_xs);
+      padding-left: 20px;
+      padding-right: 100px;
+    }
+    .fa-bell {
+      padding: 0px 20px 0px 20px;
+    }
+    .fa-solid {
+      color: var(--font_color);
+    }
+    #burger-menu {
+      text-indent: -9999px;
+      display: none;
+      border: none;
+      background: transparent;
+      margin: 25px;
+      cursor: pointer;
+      height: 27px;
+      width: 27px;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media screen and (max-width: 900px) {
+      #burger-menu {
+        display: block;
+      }
+      #burger-menu span,
+      #burger-menu span:before,
+      #burger-menu span:after {
+        background: #333;
+        display: block;
+        height: 3px;
+        opacity: 1;
+        position: absolute;
+        transition: 0.3s ease-in-out;
+        content: "";
+      }
+      #burger-menu span:before {
+        left: 0px;
+        top: -10px;
+        width: 27px;
+      }
+      #burger-menu span {
+        right: 0px;
+        top: 13px;
+        width: 27px;
+      }
+      #burger-menu span:after {
+        left: 0px;
+        top: 10px;
+        width: 27px;
+      }
+      #burger-menu.close span:before {
+        top: 0px;
+        transform: rotate(90deg);
+        width: 27px;
+        background: #fff;
+      }
+      #burger-menu.close span {
+        transform: rotate(-45deg);
+        top: 13px;
+        width: 27px;
+        background: #fff;
+      }
+      #burger-menu.close span:after {
+        top: 0px;
+        left: 0;
+        transform: rotate(90deg);
+        opacity: 0;
+        width: 0;
+        background: #fff;
+      }
+      #menu {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        z-index: 1;
+        min-width: 100%;
+        min-height: 100%;
+        position: fixed;
+        top: 0;
+        height: 0;
+        visibility: hidden;
+        opacity: 0;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 20px;
+        transition: all 0.3s ease-in-out;
+      }
+      #flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      img {
+        width: 80px;
+        padding: 0 0px 20px 45px;
+      }
+      #menu.overlay {
+        visibility: visible;
+        opacity: 1;
+        padding-top: 0px;
+        background: var(--bg_color);
+      }
+      #menu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 2em;
+      }
+      #menu li {
+        list-style: none;
+        display: initial;
+      }
+      #menu a {
+        color: #fff;
+        display: block;
+        text-decoration: none;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-left: 12%;
+      }
+      ul li:hover > ul,
+      ul li ul:hover {
+        visibility: hidden;
+        opacity: 1;
+        display: none;
+        min-width: 20%;
+        padding: 0px 8px;
+        text-align: left;
+        padding-top: 20px;
+        /* box-shadow: 0px 0px 1px 0px var(--font_color); */
+      }
+      .padding {
+        padding-left: 12%;
+      }
+    }
+  </style>
+</nav>

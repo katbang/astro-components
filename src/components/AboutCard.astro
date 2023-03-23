@@ -1,0 +1,89 @@
+---
+import Button from "./Button.astro";
+const { variant, imgsize, title, imagename, imgdescription } = Astro.props;
+---
+
+<div class={variant}>
+  <img class={imgsize} src={imagename} alt={imgdescription} />
+  <div>
+    <h2>{title}</h2>
+    <slot />
+    <Button variant="read_more" text="Read more" />
+  </div>
+</div>
+
+<style>
+  .grid_1-4 h2 {
+    font-family: var(--main_font);
+    font-size: var(--fs_l);
+    font-weight: var(--fw_r);
+    margin: 20px 0;
+    text-align: center;
+  }
+  .grid_4-1 h2 {
+    font-family: var(--main_font);
+    font-size: var(--fs_l);
+    font-weight: var(--fw_r);
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  img {
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+    margin-top: 15px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .grid_1-4,
+  .grid_4-1 {
+    display: grid;
+    background-color: var(--s_transparent);
+    margin: 20px 8%;
+  }
+  .medium {
+    width: 50%;
+  }
+  .large {
+    width: 70%;
+  }
+
+  @media (min-width: 800px) {
+    .grid_1-4 {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      margin: 0 8%;
+      padding: 1% 0 0 5%;
+      align-items: center;
+    }
+    .grid_4-1 {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+      margin: 50px 8%;
+      padding: 1% 8% 0 5%;
+      align-items: center;
+    }
+    .grid_1-4 h2 {
+      margin: 50px 0px 30px 50px;
+      text-align: start;
+    }
+    .grid_4-1 h2 {
+      margin: 50px 0px 30px 0px;
+      text-align: start;
+    }
+    .grid_4-1 img {
+      order: 1;
+    }
+    .medium {
+      width: 100%;
+      text-align: center;
+    }
+    .large {
+      width: 160%;
+    }
+    .grid_4-1 .medium {
+      width: 110%;
+    }
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+const { text, variant } = Astro.props;
+---
+
+<div>
+  <p class={variant}>{text}</p>
+  <slot />
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex: row;
+    justify-content: center;
+  }
+
+  .read_more {
+    background-color: white;
+    font-family: var(--main_font);
+    font-size: var(--fs_xs);
+    font-weight: var(--fw_r);
+    text-align: center;
+    color: #35826b;
+    width: 100px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #35826b;
+    cursor: pointer;
+  }
+
+  .see_more {
+    font-family: var(--main_font);
+    font-size: var(--fs_xs);
+    font-weight: var(--fw_r);
+    text-align: center;
+    background-color: #35826b;
+    color: white;
+    border: 2px solid #35826b;
+    width: 150px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #35826b;
+    cursor: pointer;
+  }
+  .read_more:hover {
+    background-color: #35826b;
+    color: white;
+    border: 2px solid #35826b;
+  }
+  .see_more:hover {
+    background-color: white;
+    color: #35826b;
+    border: 2px solid #35826b;
+  }
+  .fa-solid {
+    color: white;
+  }
+</style>

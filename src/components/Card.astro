@@ -1,0 +1,22 @@
+---
+const { title, image } = Astro.props;
+---
+
+<div class="card">
+  <div class="img"></div>
+  <img src={image} alt={title} />
+  <h3>{title}</h3>
+</div>
+
+<style>
+  h3 {
+    font-family: var(--main_font);
+    font-weight: var(--fw_m);
+    padding-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  img {
+    width: 100%;
+  }
+</style>

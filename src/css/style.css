@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+@font-face {
+  font-family: "Dance";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/Dance.woff");
+  font-display: swap;
+}
+html {
+  --fw_l: 300;
+  --fw_r: 400;
+  --fw_m: 500;
+  --fw_b: 700;
+  --bg_color: #ecf4c2;
+  --font_color: #656565;
+  --main_font: "Montserrat", sans-serif;
+  --alt_font: "Dance";
+  --secondary: #5dd6b0;
+  --box_color: hsla(161, 73%, 88%, 0.5);
+  --transparent: hsla(70, 69%, 86%, 0.81);
+  --s_transparent: hsla(44, 48%, 95%, 0.55);
+  --fs_xl: 32px;
+  --fs_l: 28px;
+  --fs_m: 24px;
+  --fs_s: 18px;
+  --fs_xs: 16px;
+  --fs_responsive: clamp(0.6rem, 3.5vw + 1rem, 3.5rem);
+}
+body {
+  background: var(--bg_color);
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: var(--alt_font);
+  font-size: var(--fs_l);
+  text-align: center;
+  margin-top: 50px;
+}
+h2 {
+  font-family: var(--main_font);
+  font-size: var(--fs_xl);
+  font-weight: var(--fw_m);
+  color: var(--font_color);
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+.link {
+  margin: 0;
+  height: auto;
+}
+.container h1 {
+  font-size: var(--fs_responsive);
+  width: 85%;
+}
+#tickets {
+  aspect-ratio: 1400/550;
+  height: 100%;
+  width: 100%;
+}
+.grid {
+  display: grid;
+
+  margin: 0% 38%;
+}
+
+.grid_1-4 p {
+  font-family: var(--main_font);
+  font-size: var(--fs_xs);
+  font-weight: var(--fw_r);
+  margin: 0 auto;
+  max-width: 80%;
+  margin: 0px 0px 30px 50px;
+}

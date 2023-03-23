@@ -1,15 +1,55 @@
 ---
+import AboutCard from "../components/AboutCard.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import Header from "../components/Header.astro";
+import Link from "../components/Link.astro";
+import NavItem from "../components/NavItem.astro";
+import "../css/style.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro kompontenter</title>
+  </head>
+  <body>
+    <h1>Vores Astro Komponenter</h1>
+    <h2>Header-komponent:</h2>
+    <Header type="normal" />
+    <h2>NavItem-komponent:</h2>
+    <NavItem title="About" />
+    <h2>Link-komponent:</h2>
+    <Link title="GET YOUR TICKETS HERE">
+      <img id="tickets" class="link" src="/tickets.webp" alt="Tickets" />
+    </Link>
+    <h2>Card-komponent:</h2>
+    <div class="grid">
+      <Card title="Ida Daugaard" image="/daugaard.webp" />
+    </div>
+    <h2>AboutCard-komponent:</h2>
+    <AboutCard
+      variant="grid_1-4"
+      imgsize="medium"
+      title="The Organization"
+      imagename="/heart_people.svg"
+      imgdescription="Connection between people"
+    >
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, quia
+        corrupti? Doloremque autem odio, magnam sint magni pariatur commodi
+        quasi voluptates, ab in qui quia ex minus, fugit neque tenetur.
+      </p>
+    </AboutCard>
+    <h2>Button-komponent:</h2>
+    <Button variant="read_more" text="Read more" />
+
+    <script
+      src="https://kit.fontawesome.com/cefafbdb36.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
