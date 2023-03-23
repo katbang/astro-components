@@ -18,15 +18,16 @@ import "../css/style.css";
   </head>
   <body>
     <h1>Vores Astro Komponenter</h1>
-    <h2>Header-komponent:</h2>
+
+    <h2 class="header">Header-komponent:</h2>
     <Header type="normal" />
-    <h2>NavItem-komponent:</h2>
+    <h2 class="header">NavItem-komponent:</h2>
     <NavItem title="About" />
-    <h2>Link-komponent:</h2>
+    <h2 class="header">Link-komponent:</h2>
     <Link title="GET YOUR TICKETS HERE">
       <img id="tickets" class="link" src="/tickets.webp" alt="Tickets" />
     </Link>
-    <h2>Card-komponent:</h2>
+    <h2 class="header">Card-komponent:</h2>
     <div class="grid">
       <Card title="Ida Daugaard" image="/daugaard.webp" />
     </div>
@@ -44,7 +45,7 @@ import "../css/style.css";
         quasi voluptates, ab in qui quia ex minus, fugit neque tenetur.
       </p>
     </AboutCard>
-    <h2>Button-komponent:</h2>
+    <h2 class="header">Button-komponent:</h2>
     <Button variant="read_more" text="Read more" />
 
     <script
